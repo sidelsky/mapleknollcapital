@@ -1,0 +1,58 @@
+.page-header__logo-image--black {
+    //display: none;
+}
+
+// Is active from window scroll
+.js-is-active {
+    background-color: $white;
+    top: 0;
+    padding: 0;
+    padding-top: $spacing--small;
+    box-shadow: 0 4px 6px -6px rgba($black, .8);
+
+    .page-header__logo {
+        width: 120px;
+    }
+
+    .page-header__inner-col {
+        //height: 50px;
+    }
+
+    .primary-site-nav {
+        top: 63%;
+        padding: 0;
+    }
+
+    .menu-item {
+        @include set-font-size(1.2rem, 1.2rem, 1.2rem);
+
+        a {
+            margin-left: .5em;
+            color: $black;
+        }
+
+    }
+
+    .page-header__logo-image--white {
+        display: none;
+    }
+
+    .page-header__logo-image--black {
+        display: block;
+    }
+
+    // Current menu item
+    .current-menu-item {
+
+        a {
+            color: $color-alpha;
+
+            &:after {
+                bottom: 1px;
+            }
+
+        }
+
+    }
+
+}

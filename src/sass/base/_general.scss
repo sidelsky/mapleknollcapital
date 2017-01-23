@@ -1,0 +1,290 @@
+html {
+  box-sizing: border-box;
+  min-height: 100%;
+  overflow-y: scroll;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  ::selection {
+    background: $primary-font-color;
+    color: $white;
+    text-shadow: none;
+  }
+}
+
+strong {
+  //font-weight: bold;
+  //font-weight: 600;
+  font-family: $font-primary-book;
+}
+
+em {
+  font-style: italic;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul,
+ol {
+  padding-left: 0;
+}
+
+hr {
+  border-color: $grey;
+  margin: $margin-default 0;
+}
+
+figure {
+  margin: 0;
+}
+
+blockquote {
+  .quote {
+    quotes: '“' '”' '‘' '’';
+
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
+  }
+}
+
+.logo {
+  max-width: 2.4rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.row {
+  @include clearfix;
+}
+
+// Bootstrap-style container
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @media screen and (min-width: 768px) {
+    width: 750px;
+  }
+
+  @media screen and (min-width: 992px) {
+    width: 970px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1170px;
+  }
+}
+
+// Container that fills the window until a max width
+.container--fill {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1170px;
+  width: auto;
+
+  @media screen and (max-width: 1200px) {
+    padding: 0 20px;
+  }
+
+  @media screen and (max-width: 375px) {
+    padding: 0 10px;
+  }
+}
+
+
+
+body:before, body:after {
+    background: $white;
+    content: "";
+    height: $spacing--very-small * 2;
+    left: 0;
+    position: fixed;
+    right: 0;
+
+    // Desktop
+    @include breakpoint($small) {
+        height: $spacing--small * 2;
+    }
+
+}
+
+body:before {
+    top: 0;
+}
+
+body:after {
+    bottom: 0;
+}
+
+body {
+    border-left: $spacing--very-small * 2 solid $white;
+    border-right: $spacing--very-small * 2 solid $white;
+
+    // Desktop
+    @include breakpoint($small) {
+        border-left: $spacing--small * 2 solid $white;
+        border-right: $spacing--small * 2 solid $white;
+    }
+
+}
+
+
+.is-sub-page {
+
+    .page-wrap {
+        padding-top: 110px;
+
+        // Desktop
+        @include breakpoint($small) {
+            padding-top: 120px;
+        }
+    }
+
+}
+
+
+.lost-max-width {
+    //lost-center: 1280px;
+    //margin: -120px auto $spacing--small;
+    margin: 0 auto;
+    //margin: 0 auto;
+    position: relative;
+    //transform: translate3d(0, -120px, 0);
+    //max-width: 98%;
+
+    // @include breakpoint($small) {
+    //     margin-top: -80px;
+    //     max-width: 90%;
+    // }
+
+    // @include breakpoint($medium) {
+    //     margin-top: -80px;
+    //     max-width: 90%;
+    // }
+
+    @include breakpoint($small) {
+        max-width: 90%;
+    }
+
+    // Desktop
+    @include breakpoint($medium) {
+        //margin-top: -140px;
+    }
+
+    // Desktop
+    @include breakpoint($large) {
+        //margin-top: -80px;
+    }
+
+
+    // Inner content
+    &__content-inner {
+        //padding: $spacing--very-small $spacing--small $spacing--small;
+        padding: $spacing--small 0;
+        background-color: $white;
+        position: relative;
+        //margin: 0 $spacing--very-small;
+
+        @include breakpoint($small) {
+            margin: 0 $spacing--small;
+            padding: $spacing--small;
+        }
+
+        // // Triangle cutout
+        // &::before,
+        // &::after {
+        //   //border-bottom: 10px solid lighten($color-alpha, 20%);
+        //   border-bottom: 10px solid $white;
+        //   content: '';
+        //   display: block;
+        //   position: absolute;
+        //   top: -10px;
+        //   width: 50%;
+        // }
+        //
+        // &::before {
+        //   border-right: 10px solid transparent;
+        //   left: 0;
+        // }
+        //
+        // &::after {
+        //   border-left: 10px solid transparent;
+        //   right: 0;
+        // }
+
+    }
+
+    &--margin-reset {
+        margin-top: 0;
+    }
+
+}
+
+
+.furnature {
+    position: relative;
+    z-index: 100;
+    // Triangle cutout
+    &::before,
+    &::after {
+      //border-bottom: 10px solid lighten($color-alpha, 20%);
+      border-bottom: 10px solid $white;
+      content: '';
+      display: block;
+      position: absolute;
+      top: -10px;
+      width: 50%;
+    }
+
+    &::before {
+      border-right: 10px solid transparent;
+      left: 0;
+    }
+
+    &::after {
+      border-left: 10px solid transparent;
+      right: 0;
+    }
+}
+
+
+.post {
+    ul {
+        margin-bottom: $spacing--small!important;
+        margin-left: $spacing--small;
+        margin-top: -2rem;
+        >  li {
+            list-style: disc;
+            ul {
+                margin-top: 0px;
+                margin-bottom: 0px!important;
+                > li {
+                    list-style-type: circle;
+                }
+            }
+
+        }
+    }
+}

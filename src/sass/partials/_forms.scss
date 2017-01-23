@@ -1,0 +1,182 @@
+@lost gutter 20px;
+
+$font-size: 1.5rem;
+
+.gform_wrapper {
+    max-width: 1024px;
+    text-align: left;
+    font-size: $font-size;
+    margin-bottom: $spacing--small;
+
+    a {
+        color: $grey;
+        text-decoration: underline;
+    }
+
+}
+
+.gfield {
+    padding-bottom: $spacing--very-small;
+}
+
+.gfield_label {
+    //font-family: $font-primary-book;
+}
+
+.gfield_description {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: $grey;
+}
+
+.ginput_container {
+    input, textarea {
+        background-color: transparent;
+        border: 0;
+        font-size: $font-size;
+        line-height: 3;
+        margin: 0;
+        padding: 0;
+        padding-left: 1rem;
+        background-color: rgba($grey, .1);
+        width: 100%;
+
+        &:focus {
+            background-color: rgba($grey, .1);
+            border: 0;
+            padding-left: 1rem;
+        }
+
+    }
+}
+
+// Multiple email
+.ginput_complex {
+    @include clearfix;
+
+    span {
+        margin-bottom: 1.5rem;
+        display: block;
+    }
+
+    @include breakpoint($medium) {
+        span {
+            lost-column: 1/2;
+            float: left;
+        }
+    }
+
+}
+
+
+.gform_wrapper textarea {
+    height: 150px!important;
+}
+
+
+select {
+    background-color: transparent;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    font-size: $font-size;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    //font-family: $font-primary-medium;
+
+    &:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #000;
+    }
+
+}
+
+
+
+.clear-multi {
+    @include clearfix;
+
+    .ginput_container_date {
+        lost-column: 1/3;
+    }
+
+}
+
+
+.gform_footer {
+
+    .button {
+        padding: $spacing--very-small;
+        background-color: $grey-med;
+        text-transform: uppercase;
+        color: $white;
+        margin: 0;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+    }
+}
+
+.gfield_checkbox, .gfield_radio {
+    li {
+        padding: 4px 0;
+    }
+}
+
+
+.ginput_container {
+    padding-top: 5px;
+}
+
+[type=checkbox]+label,
+[type=radio]+label {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: .7rem;
+    vertical-align: baseline;
+}
+
+
+.gfield_required {
+    color: red;
+}
+
+
+// Date
+.ginput_container_date {
+    position: relative;
+}
+// Cal Icon
+.ui-datepicker-trigger {
+    position: absolute;
+    top: 40%;
+    transform: translateX(-50%);
+    right: 0;
+}
+
+// Date picker
+.ui-datepicker {
+    background-color: $grey;
+    padding: 10px;
+
+    a {
+        color: $grey;
+    }
+
+}
+
+
+// dates
+.ui-datepicker-calendar {
+    thead, tbody {
+        background-color: transparent!important;
+    }
+}
+
+
+.validation_message, .validation_error {
+    color: red;
+}

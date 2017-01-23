@@ -1,0 +1,12 @@
+.post-container {
+    //outline: solid 1px red;
+    //position: relative;
+    @include clearfix;
+    //padding-top: $spacing--small;
+
+    a {
+        color: $black;
+        text-decoration: underline;
+    }
+
+}

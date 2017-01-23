@@ -1,0 +1,68 @@
+.single-team {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100vh - 120px);
+    position: relative;
+
+    &__wrap {
+        position: relative;
+    }
+
+    &__title {
+        @include set-font-size(3rem, 3rem, 3rem);
+        //font-family: $font-primary-book;
+        text-transform: uppercase;
+    }
+
+    &__sub-title {
+        display: block;
+        text-transform: none;
+        @include set-font-size(2rem, 2rem, 2rem);
+        //font-family: $font-primary-light;
+    }
+
+    &__content {
+        //margin-bottom: 100px;
+
+        p:first-of-type {
+            //color: $color-alpha;
+            //font-family: $font-primary-book;
+            @include set-font-size(2.2rem, 2.2rem, 2.2rem);
+            line-height: 1.5;
+        }
+
+    }
+
+}
+
+
+
+
+.linkedin {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    transition: all .3s ease;
+
+    &__icon {
+        $dimenions: 24px;
+        width: $dimenions;
+        height: $dimenions;
+        fill: $white;
+        transition: all .3s ease;
+    }
+
+    background-color: $color-alpha;
+    padding: 12px;
+
+    &:hover {
+        background-color: $white;
+
+        .linkedin__icon {
+            fill: $color-alpha;
+        }
+
+    }
+
+}

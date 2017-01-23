@@ -1,0 +1,43 @@
+.page-footer{
+	margin-bottom: $spacing--small * 2;
+	background-color: $grey-med;
+    lost-utility: clearfix;
+    padding: $spacing--small;
+    line-height: 1.5;
+
+    &__column {
+        @include set-font-size(1.4rem, 1.4rem, 1.4rem);
+        &:first-of-type() {
+            margin-bottom: 10px;
+        }
+
+        @include breakpoint($small) {
+            lost-column: 1/2;
+
+            &:first-of-type() {
+                margin-bottom: 0;
+            }
+
+        }
+    }
+
+    &__copyright {
+        margin: 0;
+        color: $grey--light;
+
+        strong {
+
+        }
+
+        a {
+            color: $grey--light;
+        }
+
+        h5 {
+            font-family: $font-primary-book;
+            display: inline-block;
+        }
+
+    }
+
+}

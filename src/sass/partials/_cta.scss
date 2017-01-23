@@ -1,0 +1,236 @@
+.cta {
+    @include clearfix;
+    background-position: center center;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 0 $spacing--small 0;
+    padding: $spacing--very-small;
+    //background-color: lighten($grey--dark, 60%);
+
+    // Desktop
+    @include breakpoint($small) {
+        padding: $spacing--large;
+    }
+
+    &--vh {
+        padding-bottom: 140px;
+        margin-bottom: 0;
+        //background-attachment: fixed;
+        overflow: hidden;
+        //height: 100vh;
+        //max-height: 500px;
+
+        @include breakpoint($small) {
+            .hero-image__shading {
+                left: -500px;
+                bottom: -765px;
+            }
+        }
+
+        &.js-hide {
+            display: none;
+        }
+
+        &.js-show {
+            display: block;
+        }
+
+    }
+
+    &--flex-row {
+        lost-flex-container: row;
+    }
+
+    // Column
+    &__column {
+        position: relative;
+        background-color: $white;
+        background-color: rgba($white, .95);
+        transition: all .3s ease;
+
+        // Has arrow pointers
+        &--arrow {
+
+            // Arrow
+            // Triangle cutout
+            &::before,
+            &::after {
+              border-right: 10px solid transparent;
+              content: '';
+              display: block;
+              height: 50%;
+              position: absolute;
+              right: -10px;
+              transition: all .3s ease;
+            }
+
+            &::before {
+              border-top: 10px solid white;
+              bottom: 0;
+              //height: 20%;
+            }
+
+            &::after {
+              border-bottom: 10px solid white;
+              top: 0;
+              //height: 80%;
+            }
+
+        }
+
+        &:first-child() {
+            margin-bottom: $spacing--large;
+        }
+
+        // Desktop
+        @include breakpoint($medium) {
+            lost-column: 1/2 flex;
+            margin-bottom: 0;
+
+            &:first-child() {
+                margin-bottom: 0;
+            }
+
+        }
+
+        a, &__inner {
+            color: $black;
+            display: block;
+            padding: $spacing--small;
+            z-index: 2;
+        }
+
+        p {
+            margin-bottom: $spacing--small;
+        }
+
+        // Column hover state
+        &:hover {
+
+            &::before, &::after {
+                right: -15px;
+            }
+
+            .cta__link {
+                color: $color-alpha;
+            }
+
+        }
+
+        // JS Hover state
+        &.js-active {
+            background-color: $grey--light;
+            opacity: .8;
+
+            &::before, &::after {
+                right: 10px;
+            }
+
+            &::before,  {
+              border-top: 10px solid $grey--light;
+            }
+
+            &::after {
+              border-bottom: 10px solid $grey--light;
+            }
+
+        }
+
+        // Full width column
+        &--full-width {
+            //lost-column: 1/1;
+            margin: 0 auto!important;
+            //margin-bottom: 10vh!important;
+            background: none;
+
+            position: relative;
+            bottom: -110px;
+            //padding: $spacing--small;
+
+            .cta__title {
+                color: $white;
+
+                // Desktop
+                @include breakpoint($small) {
+                    max-width: 500px;
+                }
+
+            }
+
+            @include breakpoint($small) {
+                width: 90%;
+            }
+
+
+
+
+        }
+
+    }
+
+    // Title
+    &__title {
+        @include set-font-size(1.8rem, 1.8rem, 1.8rem);
+        font-family: $font-primary-book;
+        line-height: 1.2;
+        margin-bottom: 0;
+        margin-bottom: $spacing--very-small;
+        text-transform: uppercase;
+        //color: $white;
+
+        span {
+            color: rgba($white, .8);
+            font-family: $font-primary-semibold;
+            //color: $grey;
+            display: block;
+            letter-spacing: 1px;
+            @include set-font-size(1.3rem, 1.3rem, 1.3rem);
+            margin-bottom: $spacing--very-small / 2;
+        }
+
+    }
+
+    // Link
+    &__link {
+        text-transform: uppercase;
+        @include set-font-size(1.4rem, 1.4rem, 1.4rem);
+        color: $color-alpha;
+        position: absolute;
+        bottom: $spacing--large;
+    }
+
+}
+
+
+
+
+// Contact page
+body.page-template-contact-page {
+
+    .cta__column__inner {
+        //background: transparent;
+        //margin-bottom: 30vh;
+    }
+
+}
+
+
+body {
+    // About us page
+    &.page-id-3 {
+
+    .cta {
+            background-position: right center;
+
+            // Desktop
+            @include breakpoint($small) {
+                background-position: center center;
+            }
+
+
+        }
+
+    }
+
+}

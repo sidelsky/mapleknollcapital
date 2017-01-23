@@ -1,0 +1,81 @@
+//@lost cycle auto;
+//@lost cycle none;
+
+.page-header {
+    left: $spacing--very-small * 2;
+    padding: $spacing--very-small;
+    position: fixed;
+    right: $spacing--very-small * 2;
+    top: $spacing--very-small;
+    transition: all .3s ease;
+    z-index: 200;
+    background: $white;
+
+    // Desktop
+    @include breakpoint($small) {
+        right: $spacing--small * 2;
+        left: $spacing--small * 2;
+        top: $spacing--small;
+    }
+
+
+    &__inner {
+        lost-utility: clearfix;
+        position: relative;
+        position: relative;
+    }
+
+    &__inner-col {
+
+    }
+
+    &__inner-left {
+            lost-column: 3/12;
+
+        @include breakpoint( $medium ) {
+            lost-column: 2/12 2 0px;
+        }
+
+    }
+
+    &__logo {
+        transition: all .3s ease-in-out;
+        width: 170px;
+    }
+
+    &__logo-link {
+        display: block;
+    }
+
+    &__logo-image {
+
+    }
+
+    &__inner-right {
+        position: relative;
+        height: 60px;
+        lost-column: 9/12;
+
+        @include breakpoint( $medium ) {
+            lost-column: 10/12;
+        }
+
+    }
+
+}
+
+
+// If is front page
+&.is-front-page {
+
+    .page-header {
+        background-color: $white;
+        //background: linear-gradient(rgba($color-alpha, .4) 0%, rgba($color-alpha ,0) 99%);
+
+    }
+
+    .js-is-active {
+        background: $white;
+    }
+
+}

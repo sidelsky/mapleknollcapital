@@ -1,0 +1,39 @@
+// Close button
+.close {
+    display: block;
+    position: absolute;
+    right: $spacing--small;
+    top: $spacing--small;
+    z-index: 100;
+
+    &__icon {
+        //fill: $white;
+        fill: $grey;
+        height: 28px;
+        transition: all .3 ease;
+        width: 28px;
+    }
+
+    &:hover {
+
+        .close__icon {
+            fill: $color-alpha;
+        }
+
+    }
+
+}
+
+
+// Case studies close icon colour
+.page-template-case-studies-page {
+
+    .close {
+
+        &__icon {
+            fill: $grey;
+        }
+
+    }
+
+}

@@ -1,0 +1,33 @@
+.content-column {
+    //lost-utility: clearfix;
+}
+
+.one_half {
+    // Desktop
+    @include breakpoint($medium) {
+        //margin: 0!important;
+        //lost-column: 1/2;
+        //width: 50%;
+        //float: left;
+        lost-column: 6/12;
+    }
+}
+
+
+.two_third {
+
+    &:first-of-type {
+
+        // Desktop
+        @include breakpoint($medium) {
+            lost-column: 5/12;
+        }
+
+    }
+
+    // Desktop
+    @include breakpoint($medium) {
+        lost-column: 7/12;
+    }
+
+}

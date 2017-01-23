@@ -1,0 +1,118 @@
+.single-case-study {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //height: calc(100vh - 120px);
+    //margin-bottom: 120px;
+    position: relative;
+
+    &__wrap {
+        position: relative;
+        background-color: $grey--light;
+        padding: $spacing--small;
+
+        p {
+            @include set-font-size(1.8rem, 2.0rem, 2.4rem);
+        }
+    }
+
+
+    // Images and details
+    &__inner-content {
+        background-color: $white;
+        padding: $spacing--large;
+        @include clearfix;
+    }
+
+    // Images
+    &__gallery {
+        lost-column: 1/1;
+        margin-bottom: $spacing--small;
+
+        @include breakpoint($medium) {
+            lost-column: 8/12;
+            margin-bottom: 0;
+        }
+    }
+
+    // Details
+    &__details {
+        lost-column: 1/1;
+
+        @include breakpoint($medium) {
+            lost-column: 4/12;
+            padding: $spacing--small $spacing--small $spacing--small 0;
+        }
+        // ALT used for Team
+        &--alt {
+            img {
+                margin-bottom: $spacing--small;
+            }
+
+            @include breakpoint($medium) {
+                lost-column: 1/1;
+
+                img {
+                    width: 35%;
+                    height: auto;
+                    float: left;
+                    margin-right: $spacing--large;
+                }
+
+            }
+        }
+
+        h3 {
+            font-family: $font-primary-book;
+            @include set-font-size(1.6rem, 1.8rem, 2.0rem);
+            color: $color-alpha;
+        }
+
+    }
+
+    // Detail
+    &__detail {
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        @include set-font-size(1.6rem, 1.8rem, 2.0rem);
+        color: $color-alpha;
+        border-bottom: solid 1px $grey--light;
+
+        &:last-child() {
+            margin-bottom: $spacing--small;
+            border-bottom: 0;
+        }
+
+        // Desktop
+        // @include breakpoint($medium) {
+        //     margin-bottom: 10px;
+        //     padding-bottom: 10px;
+        // }
+
+    }
+
+}
+
+.single-case-study__details {
+
+    ul {
+        margin-bottom: $spacing--small!important;
+        margin-left: $spacing--small;
+        //margin-top: -2rem;
+        color: $color-alpha;
+        >  li {
+            @include set-font-size(1.6rem, 1.8rem, 2.0rem);
+            list-style: disc;
+            ul {
+                margin-top: 10px;
+                margin-bottom: 20px!important;
+                > li {
+                    list-style-type: circle;
+                    margin-bottom: 5px;
+                }
+            }
+
+        }
+    }
+
+}

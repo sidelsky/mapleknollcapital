@@ -1,0 +1,238 @@
+.grid {
+    //lost-utility: clearfix;
+    lost-flex-container: row;
+    margin-bottom: $spacing--large;
+
+    &__item {
+        margin-bottom: $spacing--small;
+        transition: all .3s ease;
+        position: relative;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include aspect-ratio(1, 1.4);
+        lost-column: 1/2 2;
+
+        // Desktop
+        @include breakpoint($small) {
+            //lost-column: 1/1 1 $spacing--small flex;
+            lost-column: 1/3 3 $spacing--small flex;
+        }
+
+        // Desktop
+        @include breakpoint($medium) {
+            //lost-column: 1/2 2 $spacing--small flex;
+            lost-column: 1/4 4 $spacing--small flex;
+        }
+
+        // Desktop
+        @include breakpoint($large) {
+            //lost-column: 1/2 2 $spacing--small flex;
+            lost-column: 1/4 4 $spacing--small flex;
+        }
+
+        // Case studies layout
+        &--alt {
+            @include aspect-ratio(1, 1);
+
+            // Desktop
+            @include breakpoint($small) {
+                lost-column: 1/1 2 $spacing--small flex;
+                @include aspect-ratio(16, 9);
+            }
+
+            // Desktop
+            @include breakpoint($medium) {
+                lost-column: 1/2 2 $spacing--small flex;
+                @include aspect-ratio(1, 1);
+            }
+
+            // Desktop
+            @include breakpoint($large) {
+                lost-column: 1/2 2 $spacing--small flex;
+                @include aspect-ratio(16, 9);
+            }
+
+
+        }
+
+
+        a {
+            bottom: 0;
+            display: block;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        // // Large
+        // @include breakpoint($large) {
+        //     lost-column: 1/4 4 $spacing--small flex;
+        // }
+
+        a {
+            color: $black;
+        }
+
+        // Not active
+        &.not-active {
+            opacity: .3;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+    }
+
+    &__image {
+        @include aspect-ratio(1, 1.2);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    &__details {
+        background-color: $white;
+        margin: $spacing--very-small;
+        padding: $spacing--very-small;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        //overflow: hidden;
+
+        // Arrow
+        // Triangle cutout
+        // &::before,
+        // &::after {
+        //   border-right: 10px solid transparent;
+        //   content: '';
+        //   display: block;
+        //   height: 50%;
+        //   position: absolute;
+        //   right: -10px;
+        //   transition: all .3s ease;
+        // }
+        //
+        // &::before {
+        //   border-top: 10px solid white;
+        //   bottom: 0;
+        //   //height: 20%;
+        // }
+        //
+        // &::after {
+        //   border-bottom: 10px solid white;
+        //   top: 0;
+        //   //height: 80%;
+        // }
+
+        &-inner {
+            overflow: hidden;
+        }
+
+        &-innercontainer {
+            transition: all .3s ease;
+        }
+
+    }
+
+    &__title {
+        @include set-font-size(1.3rem, 1.5rem, 1.8rem);
+        font-family: $font-primary-book;
+        line-height: 1.1;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    &__sub-title {
+        display: block;
+        font-family: $font-primary-light;
+        text-transform: none;
+        @include set-font-size(1.3rem, 1.5rem, 1.5rem);
+        line-height: 1.2;
+    }
+
+    &__cta {
+        @include set-font-size(1.4rem, 1.4rem, 1.4rem);
+        line-height: 1.2;
+        transition: all .3s ease;
+        display: none;
+        //padding-top: 1em;
+
+        @include breakpoint($large) {
+            display: block;
+            visibility: hidden;
+            max-height: 0;
+            padding-top: -1em;
+        }
+
+    }
+
+}
+
+// Hover state
+.grid__item {
+    transition: all .4s ease;
+
+    &:hover, &.active {
+
+        .grid__details {
+
+            &::before, &::after {
+                right: -15px;
+            }
+
+            &-inner {
+                overflow: hidden;
+            }
+
+            &-innercontainer {
+                margin-bottom: 0px;
+            }
+
+        }
+
+        .grid__cta {
+            color: $color-alpha;
+            transition: all .1s ease-in;
+
+            @include breakpoint($medium) {
+                visibility: visible;
+                max-height: 30px;
+                padding-top: 1em;
+            }
+
+        }
+
+        .grid__title {
+            //margin-bottom: .5em;
+        }
+
+    }
+
+    // Active state
+    &.js-active {
+        opacity: .3;
+        //filter: brightness(50%);
+        //filter: opacity(30%);
+        //filter: grayscale(100%);
+
+        .grid__details {
+
+            &::before, &::after {
+                right: 10px;
+            }
+
+        }
+
+    }
+
+}
+
+
+// .active {
+//     display: none;
+//     visibility: hidden;
+// }

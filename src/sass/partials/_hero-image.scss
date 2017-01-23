@@ -1,0 +1,95 @@
+.hero {
+
+    // Hero title
+    &-title {
+        @include set-font-size(2.5rem, 3.2rem, 3.6rem);
+        color: $white;
+        mix-blend-mode: initial;
+        position: absolute;
+        text-transform: uppercase;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+        padding: $spacing--small;
+
+        // // Desktop
+        // @include breakpoint($small) {
+        //     padding: 0;
+        //     width: 450px;
+        //     right: 60px;
+        //     bottom: 50px;
+        // }
+
+
+        // Desktop
+        @include breakpoint($medium) {
+            padding: 0;
+            width: 450px;
+            right: 50px;
+            bottom: 50px;
+        }
+
+
+        // Desktop
+        @include breakpoint($large) {
+            padding: 0;
+            width: 450px;
+            right: 60px;
+            bottom: 50px;
+        }
+
+    }
+
+    &-image {
+        height: calc(75vh - #{$spacing--small});
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom center;
+        position: relative;
+        z-index: -1;
+        overflow: hidden;
+
+        @include breakpoint($medium) {
+        }
+
+        // Shading
+        &__shading {
+            $dimensions: 1200px;
+            mix-blend-mode: multiply;
+            border-radius: 50%;
+            position: absolute;
+            right: -500px;
+            bottom: -950px;
+            height: $dimensions;
+            width: $dimensions;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            //background: linear-gradient(45deg,  rgba(25,121,93,1) 0%,rgba(1,120,186,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            background-image: url('img/pngs/circle.png');
+
+            // Desktop
+            @include breakpoint($small) {
+                right: -410px;
+                bottom: -900px;
+            }
+
+            // Desktop
+            @include breakpoint($medium) {
+                right: -500px;
+                bottom: -865px;
+            }
+
+            // Desktop
+            @include breakpoint($large) {
+                right: -500px;
+                bottom: -765px;
+            }
+
+
+        }
+
+    }
+
+}
