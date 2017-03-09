@@ -16,6 +16,7 @@
 
 
 <ul class="prev-next-navigation">
+
     <li class="prev-next-navigation__prev">
         <a id="prev-post" data-id="<?php echo $prev; ?>" href="#">
             <img class="prev-next-navigation__image prev-next-navigation__image--prev" src="<?php echo $prev_post_thumb[0] ?>" alt="<?php echo $prev_post_title; ?>" />
@@ -34,4 +35,5 @@
             <img class="prev-next-navigation__image prev-next-navigation__image--next" src="<?php echo $next_post_thumb[0] ?>" alt="<?php echo $next_post_title; ?>" />
         </a>
     </li>
+    
 </ul>

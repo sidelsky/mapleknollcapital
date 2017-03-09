@@ -9961,32 +9961,32 @@ if ($body.hasClass('page-id-6')) {
 }
 
 },{}],4:[function(require,module,exports){
-var magicDoorInit = (function(){
+var magicDoorInit = (function () {
 
-    var portfolioItems = $('#portfolio-items li'),
-        imageItems = $('.post-thumb'),
-        magicDoor = $('#door-frame'),
-        url = magicDoor.find('#magic-door').attr('data-url'),
-        $ctaContainer = $('[data-cta]'),
-        $closeButton;
+	var portfolioItems = $('#portfolio-items li'),
+		imageItems = $('.post-thumb'),
+		magicDoor = $('#door-frame'),
+		url = magicDoor.find('#magic-door').attr('data-url'),
+		$ctaContainer = $('[data-cta]'),
+		$closeButton;
 
 
-    /*	When a portfolio item is clicked */
-	portfolioItems.click( function (e) {
+	/*	When a portfolio item is clicked */
+	portfolioItems.click(function (e) {
 
-        //console.log('click');
+		//console.log('click');
 
-        //$ctaContainer.addClass('js-hide');
+		//$ctaContainer.addClass('js-hide');
 
-        //console.log('click');
+		//console.log('click');
 
-		if(!$(this).hasClass('active')) {
+		if (!$(this).hasClass('active')) {
 
 			portfolioItems.removeClass('active');
 
 			$(this).addClass('active').removeClass('not-active');
 
-            portfolioItems.not('.active').addClass('not-active');
+			portfolioItems.not('.active').addClass('not-active');
 
 			var postId = $(this).attr('id').split('portfolio-')[1];
 
@@ -9998,24 +9998,24 @@ var magicDoorInit = (function(){
 
 	});
 
-	function changeNextPrev(postId) {
+	// function changeNextPrev(postId) {
 
-		var next = getNext(postId),
-            prev = getPrev(postId);
+	// 	var next = getNext(postId),
+	//         prev = getPrev(postId);
 
-		$('#next-post').attr('data-id', next);
-		$('#prev-post').attr('data-id', prev);
-	}
+	// 	$('#next-post').attr('data-id', next);
+	// 	$('#prev-post').attr('data-id', prev);
+	// }
 
 	function getPortfolio(postId, dontGet) {
 
-		if(!dontGet)
+		if (!dontGet)
 			dontGet = false;
 
 		var next = getNext(postId),
-            prev = getPrev(postId);
+			prev = getPrev(postId);
 
-		if(dontGet == false) {
+		if (dontGet == false) {
 
 			var loader = $('#loading');
 
@@ -10028,32 +10028,32 @@ var magicDoorInit = (function(){
 				id: postId,
 				next: next,
 				prev: prev
-			}, function() {
+			}, function () {
 
-                portfolioInit();
-                openDoor();
+				portfolioInit();
+				openDoor();
 
-                loader.fadeOut(300);
+				loader.fadeOut(300);
 
 			});
 
 		}
 
-        var $doc = $("html, body");
+		var $doc = $("html, body");
 
-        $doc.animate({
-            scrollTop: 0
-        }, 500, 'easeInOutQuart');
+		$doc.animate({
+			scrollTop: 0
+		}, 500, 'easeInOutQuart');
 
 	}
 
 
-    // Closes the door when user selects another item
+	// Closes the door when user selects another item
 	function closeDoor() {
 
-        //console.log('closed');
+		//console.log('closed');
 
-		if(magicDoor.height() !== 0 ) {
+		if (magicDoor.height() !== 0) {
 
 			magicDoor.find('.magic-inner').stop(true).animate({
 				opacity: 0
@@ -10073,15 +10073,16 @@ var magicDoorInit = (function(){
 		}, 500, 'easeInOutQuart', function () {
 
 			magicDoor.css({
-                height: 'auto'
+				height: 'auto'
 			});
 
-            $ctaContainer.slideUp(300, 'easeInOutQuart');
+			$ctaContainer.slideUp(300, 'easeInOutQuart');
 
 		});
 	}
 
 	//openDoor();
+
 
 	function getNext(postId) {
 
@@ -10090,21 +10091,18 @@ var magicDoorInit = (function(){
 		//has next var
 		var hasNext = $('#portfolio-' + postId).next();
 
-        //console.log(hasNext);
-
 		//if there is a next object
-		if(hasNext.length !== 0) {
+		if(hasNext.length != 0) {
 
-			while(hasNext.hasClass('visible') === false && hasNext.length !== 0) {
+			while(hasNext.hasClass('visible') == false && hasNext.length != 0) {
 				hasNext = hasNext.next();
 			}
 
-			if(hasNext.length !== 0) {
-				next = hasNext.attr('id').split('portfolio-')[1];
+			if(hasNext.length != 0) {
+				var next = hasNext
+						.attr('id').split('portfolio-')[1];
 			}
 		}
-
-        console.log(next);
 
 		return next;
 	}
@@ -10117,26 +10115,63 @@ var magicDoorInit = (function(){
 		var hasPrev = $('#portfolio-' + postId).prev();
 
 		//if there is a next object
-		if(hasPrev.length !== 0) {
+		if(hasPrev.length != 0) {
 
-			while(hasPrev.hasClass('visible') === false && hasPrev.length !== 0) {
-				hasPrev.prev();
+			while(hasPrev.hasClass('visible') == false && hasPrev.length != 0) {
+				hasPrev = hasPrev.prev();
 			}
 
-			if(hasPrev.length !== 0) {
-				hasPrev.attr('id').split('portfolio-')[1];
+			if(hasPrev.length != 0) {
+				var prev = hasPrev
+						.attr('id').split('portfolio-')[1];
 			}
 		}
-
-        console.log(prev);
 
 		return prev;
 	}
 
+	// Get NEXT post
+	// function getNext(postId) {
+
+	// 	var next = $('#portfolio-items li.visible').first().attr('id').split('portfolio-')[1];
+	// 	var hasNext = $('#portfolio-' + this.postId).next();
+
+	// 	if (hasNext.length !== 0) {
+	// 		while (hasNext.hasClass('visible') === false && hasNext.length !== 0) {
+	// 			hasNext = hasNext.next();
+	// 		}
+	// 		if (hasNext.length !== 0) {
+	// 			next = hasNext.attr('id').split('portfolio-')[1];
+	// 		}
+	// 	}
+	// 	return next;
+	// }
+
+	// Get PREV post
+	// function getPrev(postId) {
+
+	// 	var prev = $('#portfolio-items li.visible').last().attr('id').split('portfolio-')[1];
+	// 	var hasPrev = $('#portfolio-' + this.postId).prev();
+
+	// 	if (hasPrev.length !== 0) {
+	// 		while (hasPrev.hasClass('visible') === false && hasPrev.length !== 0) {
+	// 			hasPrev.prev();
+	// 		}
+	// 		if (hasPrev.length !== 0) {
+	// 			hasPrev.attr('id').split('portfolio-')[1];
+	// 		}
+	// 	}
+	// 	return prev;
+	// }
+
+
+
+
+
 	//Initialize the portfolio
 	function portfolioInit() {
 
-		$('#next-post, #prev-post').click( function() {
+		$('#next-post, #prev-post').click(function () {
 
 			var postId = $(this).attr('data-id');
 
@@ -10144,7 +10179,7 @@ var magicDoorInit = (function(){
 
 			$('#portfolio-' + postId).addClass('active');
 
-            portfolioItems.not('.active').addClass('not-active');
+			portfolioItems.not('.active').addClass('not-active');
 
 			getPortfolio(postId);
 
@@ -10153,15 +10188,15 @@ var magicDoorInit = (function(){
 		});
 
 
-        $closeButton = $('.close');
+		$closeButton = $('.close');
 
-		$closeButton.click( function() {
+		$closeButton.click(function () {
 
-            $ctaContainer.slideDown(300, 'easeInOutQuart');
+			$ctaContainer.slideDown(300, 'easeInOutQuart');
 
 			magicDoor.stop().animate({
 				height: 0
-			}, 500, 'easeInOutQuart', function() {
+			}, 500, 'easeInOutQuart', function () {
 				portfolioItems.removeClass('active').removeClass('not-active');
 			});
 
@@ -10178,13 +10213,12 @@ var magicDoorInit = (function(){
 /*	Plugins!
 /*-----------------------------------------------------------------------------------*/
 $.extend($.easing, {
-  def: 'easeInOutQuart',
-    easeInOutQuart: function (x, t, b, c, d) {
-      if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b;
-      return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
-    }
-  });
-
+	def: 'easeInOutQuart',
+	easeInOutQuart: function (x, t, b, c, d) {
+		if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b;
+		return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
+	}
+});
 },{}],5:[function(require,module,exports){
 var mobileNavigation = (function(){
 
